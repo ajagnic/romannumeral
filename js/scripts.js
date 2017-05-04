@@ -15,19 +15,25 @@ $(document).ready(function(){
 });
 
 //-----------------------------------BACKEND LOGIC
-var romanSymbol = [[1000, "M"], [500, "D"], [100, "C"], [50, "L"], [10, "X"], [5, "V"], [1, "I"]];
-var tempArray = ['M', 'D', 'C', 'L', 'X', 'V', 'I'];
+var romanSymbol = [[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];
+
 
 var getRomanNum = function(userNumber) {
   debugger;
   if (userNumber === 0) {
-    return '';
+    return "";
   } else {
-    for (i = 0; i <= 7; i++) {
+    for (i = 0; i <= 13; i++) {
       if (userNumber >= romanSymbol[i][0]) {
-        var result = romanSymbol[i][1] + getRomanNum(userNumber - romanSymbol[i][0]);
+        var result = romanSymbol[i][1] + romanHelper(userNumber);
         return result;
       }
     }
   }
+};
+
+function romanHelper(userNumber) {
+  debugger;
+  (userNumber -= romanSymbol[i][0]);
+  return getRomanNum(userNumber)
 };
