@@ -4,5 +4,14 @@ $(document).ready(function(){
     event.preventDefault();
     debugger;
     var userNumber = parseInt($("input#userInput").val());
+
+    if (isNaN(userInput)) {
+      alert("Please only input numbers.")
+    }
+
+
   });
+
+  
+
 });
